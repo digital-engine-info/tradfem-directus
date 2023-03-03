@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+
+  tradfem-directus:
+    image: tradfem-directus
+    build: .
+    environment:
+      - KEY=${DIRECTUS_KEY}
+      - SECRET=${DIRECTUS_SECRET}
+      - DB_CLIENT=postgres
+      - DB_DATABASE=${DIRECTUS_DB_DATABASE}
+      - DB_USER=${DIRECTUS_DB_USER}
+      - DB_PASSWORD=${DIRECTUS_DB_PASSWORD}
+      - DB_HOST=tradfem-directus-pgdb
+      - DB_PORT=5432
+      - ADMIN_EMAIL=${DIRECTUS_ADMIN_EMAIL}
+      - ADMIN_PASSWORD=${DIRECTUS_ADMIN_PASSWORD}
+    volumes:
+      - ./uploads:/directus/uploads
+      - ./database:/directus/database
+    ports:
+      - 8055:8055
+
+  tradfem-directus-pgdb:
+    image: postgres:11
+    environment:
+      - POSTGRES_USER=${DIRECTUS_DB_USER}
+      - POSTGRES_PASSWORD=${DIRECTUS_DB_PASSWORD}
+      - POSTGRES_DB=${DIRECTUS_DB_DATABASE}
+    volumes:
+      - ./data:/var/lib/postgresql/data

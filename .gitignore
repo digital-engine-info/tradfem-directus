@@ -1,0 +1,5 @@
+# Local development files and directories
+.env
+data
+database
+uploads
