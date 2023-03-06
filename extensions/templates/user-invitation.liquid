@@ -1,0 +1,21 @@
+{% layout "base" %}
+{% block content %}
+
+  <p>
+    Vous avez été invité à rejoindre l'interface d'administration de
+    <i>{{ projectName }}</i>.
+    Veuillez cliquer sur le bouton ci-dessous pour accepter cette invitation et rejoindre le projet :
+  </p>
+
+  <p style="text-align: center; padding: 20px 0;">
+    <a href="{{ url }}">
+      <b>Rejoindre {{ projectName }}</b>
+    </a>
+  </p>
+
+  <p>
+    Merci,<br>
+    L'équipe {{ projectName }}
+  </p>
+
+{% endblock %}

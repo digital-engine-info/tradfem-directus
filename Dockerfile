@@ -1,14 +1,3 @@
 FROM ghcr.io/directus/directus:latest
 
-ENV KEY=
-ENV SECRET=
-
-ENV DB_CLIENT=
-ENV DB_DATABASE=
-ENV DB_USER=
-ENV DB_PASSWORD=
-ENV DB_HOST=
-ENV DB_PORT=
-
-ENV ADMIN_EMAIL=
-ENV ADMIN_PASSWORD=
+COPY ./extensions /directus/extensions
